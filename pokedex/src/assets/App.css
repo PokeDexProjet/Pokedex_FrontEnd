@@ -1,0 +1,21 @@
+/* App.css */
+
+/* 给应用的整体容器设置一些基础样式 */
+.app {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* 应用中的标题 */
+  .app h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #333;
+    margin-top: 20px;
+  }
+  
