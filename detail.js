@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/pokemon"; // Remplacez par l'adresse réelle du serveur backend
+const API_URL = "http://localhost:3000/pokemon"; // Remplacez par l'adresse réelle du serveur backend
 
 // Fonction pour obtenir l'ID du Pokémon à partir des paramètres de l'URL
 function getPokemonIdFromUrl() {
