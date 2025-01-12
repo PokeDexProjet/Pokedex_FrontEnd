@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/pokemon"; // Remplacez par l'adresse réelle du serveur backend
+const API_URL = "https://automatic-telegram-jjj4699wpjgq3xxw-3000.app.github.dev/pokemon"; // Remplacez par l'adresse réelle du serveur backend
 
 // Fonction pour récupérer les données des Pokémon depuis le backend
 async function fetchPokemon() {
@@ -17,6 +17,8 @@ async function fetchPokemon() {
       card.innerHTML = `
         <img src="${pokemon.image}" alt="${pokemon.name}">
         <h2>${pokemon.name}</h2>
+        <p>Type: ${pokemon.type.join(", ")}</p>
+        <p>${pokemon.description}</p>
       `;
       card.onclick = () => {
         // Lorsqu'une carte est cliquée, rediriger vers la page des détails avec l'ID du Pokémon
