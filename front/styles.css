@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    text-align: center; /* 将标题居中 */
+    margin-top: 20px;    /* 调整标题与顶部的间距 */
+  }
+  
+  .pokemon-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* 将卡片容器居中 */
+    margin-top: 20px;         /* 调整卡片容器与标题的间距 */
+  }
+  
+  .pokemon-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+  }
+  
+  img {
+    width: 100px;
+    height: 100px;
+  }
+  
