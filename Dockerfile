@@ -1,18 +1,11 @@
-# 使用 Node.js 作为基础镜像
-FROM node:14
+# Utiliser l'image Nginx officielle comme image de base
+FROM nginxinc/nginx-unprivileged
 
-# 设置工作目录
-WORKDIR /app
+# Copier les fichiers HTML, CSS et images dans le dossier de Nginx
+COPY . /usr/share/nginx/html
 
-# 复制前端代码到工作目录
-COPY . .
-
-# 使用 Nginx 作为服务器
-FROM nginx:alpine
-COPY --from=0 /app/build /usr/share/nginx/html
-
-# 暴露端口
+# Exposer le port 80
 EXPOSE 80
 
-# 启动 Nginx
+# Lancer Nginx
 CMD ["nginx", "-g", "daemon off;"]
