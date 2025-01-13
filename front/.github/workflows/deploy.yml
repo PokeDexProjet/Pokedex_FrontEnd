@@ -1,5 +1,9 @@
 name: Build and Deploy
 
+env:
+  ACTIONS_RUNNER_DEBUG: true
+  ACTIONS_STEP_DEBUG: true
+
 on:
   push:
     branches:
@@ -28,3 +32,4 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/pokedex-front:latest
+    
