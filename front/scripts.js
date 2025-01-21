@@ -1,7 +1,7 @@
 // Function to fetch Pokémon data
 async function getPokemons() {
     try {
-      const response = await fetch('http://localhost:3000/api/pokemons');
+      const response = await fetch('https://route-backend-huangjingl-dev.apps.rm3.7wse.p1.openshiftapps.com/:3000/api/pokemons');
       const data = await response.json();
       const container = document.getElementById('pokemon-container');
       container.innerHTML = ''; // Clear the container
