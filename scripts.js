@@ -46,6 +46,7 @@ async function getPokemons() {
         headers: {
           'Content-Type': 'application/json', // Ensure the correct header is sent
         },
+        credentials: 'include',
       }
     );
 
