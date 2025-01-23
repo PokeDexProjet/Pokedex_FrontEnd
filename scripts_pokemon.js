@@ -13,6 +13,9 @@ async function getPokemonDetails() {
   try {
     // 请求后端 API 获取对应 Pokémon 的详情
     const response = await fetch(
+      console.log(`Fetching details for Pokémon ID: ${id}`);
+      console.log(`Requesting URL: https://route-backend-huangjingl-dev.apps.rm3.7wse.p1.openshiftapps.com/api/pokemons/${id}`);
+
       `https://route-backend-huangjingl-dev.apps.rm3.7wse.p1.openshiftapps.com/api/pokemons/${id}`,
       {
         method: 'GET',
