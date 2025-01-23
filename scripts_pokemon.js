@@ -1,5 +1,4 @@
 // Function to fetch and display Pokémon details
-// Function to fetch and display Pokémon details
 async function getPokemonDetails() {
   // 获取 URL 中的查询参数（Pokémon ID）
   const urlParams = new URLSearchParams(window.location.search);
