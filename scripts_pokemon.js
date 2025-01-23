@@ -28,8 +28,16 @@ async function getPokemonDetails() {
 
     // 检查响应是否成功
     if (!response.ok) {
+      if (response.status === 404) {
+        document.getElementById('pokemon-detail').innerHTML = '<p>Pokémon not found.</p>';
+      } else if (response.status === 503) {
+        document.getElementById('pokemon-detail').innerHTML = '<p>Service unavailable. Please try again later.</p>';
+      } else {
+        document.getElementById('pokemon-detail').innerHTML = `<p>Error: ${response.status}</p>`;
+      }
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
+
 
     // 获取 Pokémon 数据
     const pokemon = await response.json();
