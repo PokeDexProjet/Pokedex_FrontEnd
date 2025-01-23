@@ -9,7 +9,7 @@ async function getPokemonDetails() {
     }
   
     try {
-      const response = await fetch(`http://localhost:3000/api/pokemons/${id}`);
+      const response = await fetch(`https://route-backend-huangjingl-dev.apps.rm3.7wse.p1.openshiftapps.com/api/pokemons${id}`);
       const pokemon = await response.json();
   
       if (!pokemon) {
