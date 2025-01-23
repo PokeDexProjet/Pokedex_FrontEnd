@@ -18,10 +18,11 @@ async function getPokemonDetails() {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-        }, // <-- 检查这里是否多余的逗号或缺失的括号
+        },
         credentials: 'include',
-      } // <-- 确保这里没有缺失括号或其他语法错误
+      }
     );
+
 
     // 检查响应是否成功
     if (!response.ok) {
