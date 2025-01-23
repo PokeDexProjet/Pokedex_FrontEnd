@@ -13,17 +13,14 @@ async function getPokemonDetails() {
   try {
     // 请求后端 API 获取对应 Pokémon 的详情
     const response = await fetch(
-      console.log(`Fetching details for Pokémon ID: ${id}`);
-      console.log(`Requesting URL: https://route-backend-huangjingl-dev.apps.rm3.7wse.p1.openshiftapps.com/api/pokemons/${id}`);
-
       `https://route-backend-huangjingl-dev.apps.rm3.7wse.p1.openshiftapps.com/api/pokemons/${id}`,
       {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json', // 确保发送正确的请求头
-        },
-        credentials: 'include', // 如果需要传递凭证（如 Cookies），保持此配置
-      }
+          'Content-Type': 'application/json',
+        }, // <-- 检查这里是否多余的逗号或缺失的括号
+        credentials: 'include',
+      } // <-- 确保这里没有缺失括号或其他语法错误
     );
 
     // 检查响应是否成功
