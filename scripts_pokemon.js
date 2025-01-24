@@ -1,55 +1,46 @@
 // Function to fetch and display Pokémon details
 async function getPokemonDetails() {
-  // 获取 URL 中的查询参数（Pokémon ID）
+  // Parse the Pokémon ID from the query parameters in the URL
   const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get('id');
+  const id = urlParams.get('id'); // Get the `id` parameter from the URL
 
-  // 如果没有提供 ID，则显示提示信息
+  // Check if no ID was provided in the URL
   if (!id) {
-    document.getElementById('pokemon-detail').innerHTML = '<p>No Pokémon ID provided.</p>';
+    document.getElementById('pokemon-detail').innerHTML =
+      'No Pokémon ID provided.';
     return;
   }
 
   try {
-    // 请求后端 API 获取对应 Pokémon 的详情
+    // Replace the API URL with the correct backend route
     const response = await fetch(
       `https://route-backend-huangjingl-dev.apps.rm3.7wse.p1.openshiftapps.com/api/pokemons/${id}`,
       {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json', // Ensure the correct header is sent
         },
         credentials: 'include',
       }
     );
 
-
-    // 检查响应是否成功
+    // Check if the response status is OK (200-299)
     if (!response.ok) {
-      if (response.status === 404) {
-        document.getElementById('pokemon-detail').innerHTML = '<p>Pokémon not found.</p>';
-      } else if (response.status === 503) {
-        document.getElementById('pokemon-detail').innerHTML = '<p>Service unavailable. Please try again later.</p>';
-      } else {
-        document.getElementById('pokemon-detail').innerHTML = `<p>Error: ${response.status}</p>`;
-      }
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-
-    // 获取 Pokémon 数据
+    // Parse the JSON response to get Pokémon details
     const pokemon = await response.json();
 
-    // 如果 Pokémon 数据为空，显示提示信息
+    // Check if the Pokémon exists
     if (!pokemon) {
-      document.getElementById('pokemon-detail').innerHTML = '<p>Pokémon not found.</p>';
+      document.getElementById('pokemon-detail').innerHTML =
+        'Pokémon not found.';
       return;
     }
 
-    // 获取显示 Pokémon 详情的容器
+    // Update the Pokémon detail container with the retrieved data
     const container = document.getElementById('pokemon-detail');
-
-    // 动态生成 Pokémon 详情内容
     container.innerHTML = `
       <h1>${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>
       <img src="${pokemon.image}" alt="${pokemon.name} image">
@@ -59,11 +50,11 @@ async function getPokemonDetails() {
   } catch (error) {
     console.error('Error fetching Pokémon details:', error);
 
-    // 如果请求出错，显示错误信息
+    // Display an error message to the user
     document.getElementById('pokemon-detail').innerHTML =
-      '<p>Error fetching Pokémon details. Please try again later.</p>';
+      'Error fetching Pokémon details. Please try again later.';
   }
 }
 
-// 页面加载时调用函数
+// Call the function on page load
 window.onload = getPokemonDetails;
