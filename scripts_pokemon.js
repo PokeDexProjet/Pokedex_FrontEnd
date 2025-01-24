@@ -14,7 +14,7 @@ async function getPokemonDetails() {
   try {
     // Replace the API URL with the correct backend route
     const response = await fetch(
-      `https://route-backend-huangjingl-dev.apps.rm3.7wse.p1.openshiftapps.com/api/pokemons/${id}`,
+      `https://route-backend-huangjingl-dev.apps.rm3.7wse.p1.openshiftapps.com/api/pokemons?id=${id}`,
       {
         method: 'GET',
         headers: {
